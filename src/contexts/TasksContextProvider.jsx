@@ -8,10 +8,19 @@ const TaskContextProvider = (props) => {
 
     const taskFunctions = {
         addTask: (task) => {
-            return;
+            setTasks((prevTasks) => [task, ...prevTasks]);
         },
-        editTask: (taskId, newTitle, newDescription) => {
-            return;
+        editTask: (taskId, newTitle, newDescription, newComplete) => {
+            setTasks((prevTasks) => {
+                const updateTask = {
+                    title: newTitle,
+                    description: newDescription,
+                    complete: newComplete,
+                };
+                return prevTasks.map((task, index) =>
+                    index === taskId ? updateTask : task,
+                );
+            });
         },
         removeTask: (taskId) => {
             return;
