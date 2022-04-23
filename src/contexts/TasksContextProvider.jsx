@@ -6,20 +6,19 @@ export const TaskContext = createContext({});
 const TaskContextProvider = (props) => {
     const [tasks, setTasks] = useState([]);
 
-    const taskFunctions = () => {
-        const addTask = (task) => {
+    const taskFunctions = {
+        addTask: (task) => {
             return;
-        };
-        const editTask = (taskId, newTitle, newDescription) => {
+        },
+        editTask: (taskId, newTitle, newDescription) => {
             return;
-        };
-        const removeTask = (taskId) => {
+        },
+        removeTask: (taskId) => {
             return;
-        };
-        const completeTask = (taskId) => {
+        },
+        completeTask: (taskId) => {
             return;
-        };
-        return { addTask, editTask, removeTask, completeTask };
+        },
     };
     return (
         <TaskContext.Provider value={{ tasks, taskFunctions }}>
