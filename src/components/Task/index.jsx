@@ -8,7 +8,11 @@ const Task = (props) => {
             <h2>{props.title}</h2>
             <p>{props.description}</p>
             <div className="task-buttons">
-                <button>Button</button>
+                <button onClick={() => props.markComplete(props.id)}>
+                    Completar
+                </button>
+                <button onClick={() => props.edit(props.id)}>Editar</button>
+                <button onClick={() => props.remove(props.id)}>Remover</button>
             </div>
         </div>
     );
@@ -19,6 +23,9 @@ Task.propTypes = {
     description: PropTypes.string,
     complete: PropTypes.bool,
     id: PropTypes.number,
+    remove: PropTypes.func,
+    edit: PropTypes.func,
+    markComplete: PropTypes.func,
 };
 
 export default Task;
