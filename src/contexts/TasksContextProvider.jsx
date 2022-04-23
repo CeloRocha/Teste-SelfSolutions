@@ -23,10 +23,18 @@ const TaskContextProvider = (props) => {
             });
         },
         removeTask: (taskId) => {
-            return;
+            setTasks((prevTasks) =>
+                prevTasks.filter((task, index) => index !== taskId),
+            );
         },
         completeTask: (taskId) => {
-            return;
+            setTasks((prevTasks) => {
+                return prevTasks.map((task, index) =>
+                    index === taskId
+                        ? { ...task, complete: !task.complete }
+                        : task,
+                );
+            });
         },
     };
     return (
