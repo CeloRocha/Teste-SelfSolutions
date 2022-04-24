@@ -51,6 +51,13 @@ const TaskContextProvider = (props) => {
                 );
             });
         },
+        dragAndDropUpdateState: (result) => {
+            const newTasks = [...tasks];
+            const [reorderedTask] = newTasks.splice(result.source.index, 1);
+            newTasks.splice(result.destination.index, 0, reorderedTask);
+
+            setTasks(newTasks);
+        },
     };
     return (
         <TaskContext.Provider value={{ tasks, taskFunctions }}>

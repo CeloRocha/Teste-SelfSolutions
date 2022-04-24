@@ -5,10 +5,11 @@ import './styles.scss';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 const Tasks = () => {
-    const { tasks } = useContext(TaskContext);
+    const { tasks, taskFunctions } = useContext(TaskContext);
 
     const handleOnDragEnd = (result) => {
-        return;
+        if (!result.destination) return;
+        taskFunctions.dragAndDropUpdateState(result);
     };
 
     return (
