@@ -1,0 +1,22 @@
+.task{
+    padding: 1.6rem;
+    width: min(60rem, 95%);
+    box-shadow: var(--shadow);
+    border-radius: 0.8rem;
+
+    background-image: linear-gradient(135deg, greenyellow, #DFDFDF 25%, #DFDFDF);;
+    background-size: 200%;
+    background-position: right;
+    transition: 1.5s;
+
+    &.complete{
+        background-position: left;
+
+        .task-button.check > svg > path{
+            fill: rgb(79, 209, 3);
+        }
+        .task-button.check:hover > svg > path{
+            fill: red;
+        }
+    }
+}

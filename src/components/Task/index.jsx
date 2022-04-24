@@ -2,7 +2,8 @@ import { useState, useContext } from 'react';
 import './styles.scss';
 import PropTypes from 'prop-types';
 import { TaskContext } from '../../contexts/TasksContextProvider';
-import Button from './Button';
+import Button from '../Button';
+import Input from '../Input';
 
 const Task = (props) => {
     const { taskFunctions } = useContext(TaskContext);
@@ -12,6 +13,8 @@ const Task = (props) => {
     const [description, setDescription] = useState(props.description);
 
     const handleEdit = () => {
+        setTitle(props.title);
+        setDescription(props.description);
         showEditTask(props.id, props.editState ? false : true);
     };
 
@@ -25,7 +28,11 @@ const Task = (props) => {
     };
 
     return (
-        <div className={`task ${props.complete ? 'complete' : ''}`}>
+        <div
+            className={`task ${
+                props.complete && !props.editState ? 'complete' : ''
+            }`}
+        >
             {!props.editState && (
                 <>
                     <h2>{props.title}</h2>
@@ -45,20 +52,14 @@ const Task = (props) => {
             )}
             {props.editState && (
                 <>
-                    <form onSubmit={handleEditForm} onBlur={closeEdit}>
-                        <label htmlFor="Title">Título</label>
-                        <input
-                            id="Title"
-                            name="Title"
-                            type="text"
+                    <form onSubmit={handleEditForm}>
+                        <Input
+                            label="Novo Título"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                         />
-                        <label htmlFor="Description">Descrição</label>
-                        <input
-                            id="Description"
-                            name="Description"
-                            type="text"
+                        <Input
+                            label="Nova Descrição"
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
                         />
