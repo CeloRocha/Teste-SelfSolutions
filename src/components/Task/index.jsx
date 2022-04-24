@@ -32,6 +32,9 @@ const Task = (props) => {
             className={`task ${
                 props.complete && !props.editState ? 'complete' : ''
             }`}
+            {...props.drag}
+            {...props.dragHandle}
+            ref={props.passRef}
         >
             {!props.editState && (
                 <>
@@ -88,6 +91,9 @@ Task.propTypes = {
     complete: PropTypes.bool,
     editState: PropTypes.bool,
     id: PropTypes.number,
+    drag: PropTypes.any,
+    dragHandle: PropTypes.any,
+    passRef: PropTypes.any,
 };
 
 export default Task;
