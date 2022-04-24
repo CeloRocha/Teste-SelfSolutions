@@ -5,10 +5,15 @@ import CheckIcon from '../Icons/CheckIcon';
 import EditIcon from '../Icons/EditIcon';
 import TrashIcon from '../Icons/TrashIcon';
 import CloseIcon from '../Icons/CloseIcon';
+import AddIcon from '../Icons/AddIcon';
 
 const Button = (props) => {
     let iconComponent, buttonLabel;
     switch (props.type) {
+        case 'add':
+            buttonLabel = 'Adicionar tarefa';
+            iconComponent = <AddIcon />;
+            break;
         case 'check':
             buttonLabel = 'Confirmar';
             iconComponent = <CheckIcon />;
@@ -28,7 +33,7 @@ const Button = (props) => {
     }
     return (
         <button
-            className={`button ${props.type}`}
+            className={`button ${props.type} ${props.className}`}
             onClick={props.onClick}
             aria-label={buttonLabel}
         >
@@ -40,6 +45,7 @@ const Button = (props) => {
 Button.propTypes = {
     type: PropTypes.string,
     onClick: PropTypes.func,
+    className: PropTypes.string,
 };
 
 export default Button;
