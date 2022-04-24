@@ -1,10 +1,11 @@
-import './App.css';
+import './App.scss';
 import Task from './components/Task';
 import { useContext, useState } from 'react';
 import { TaskContext } from './contexts/TasksContextProvider';
 import Tasks from './components/Tasks';
 import Modal from './components/Modal';
 import Input from './components/Input';
+import Button from './components/Button';
 
 const initialTask = {
     title: 'Initial task',
@@ -17,6 +18,12 @@ function App() {
     const [showCreateTaskModal, setShowCreateTaskModal] = useState(false);
     const [newTaskTitle, setNewTaskTitle] = useState('');
     const [newTaskDescription, setNewTaskDescription] = useState('');
+
+    if (showCreateTaskModal) {
+        document.body.classList.add('modalOpen');
+    } else {
+        document.body.classList.remove('modalOpen');
+    }
 
     const openCreateTaskModal = () => {
         setNewTaskTitle('');
@@ -39,10 +46,14 @@ function App() {
     };
 
     return (
-        <div className="App">
+        <div className={`App`}>
             <h1>Teste SelfSolutions</h1>
             <Tasks />
-            <button onClick={openCreateTaskModal}>Add a task</button>
+            <Button
+                type="add"
+                className="add-button-fixed"
+                onClick={openCreateTaskModal}
+            />
             <Modal
                 show={showCreateTaskModal}
                 title="Adicionar nova tarefa"
