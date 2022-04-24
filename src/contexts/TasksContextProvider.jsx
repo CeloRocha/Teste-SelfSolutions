@@ -10,6 +10,11 @@ const TaskContextProvider = (props) => {
         addTask: (task) => {
             setTasks((prevTasks) => [task, ...prevTasks]);
         },
+        resetEditTask: () => {
+            setTasks((prevTasks) => {
+                return prevTasks.map((task) => ({ ...task, editState: false }));
+            });
+        },
         showEditTask: (taskId, show) => {
             setTasks((prevTasks) => {
                 return prevTasks.map((task, index) =>
