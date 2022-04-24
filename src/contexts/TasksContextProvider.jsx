@@ -10,12 +10,22 @@ const TaskContextProvider = (props) => {
         addTask: (task) => {
             setTasks((prevTasks) => [task, ...prevTasks]);
         },
+        showEditTask: (taskId, show) => {
+            setTasks((prevTasks) => {
+                return prevTasks.map((task, index) =>
+                    index === taskId
+                        ? { ...task, editState: show }
+                        : { ...task, editState: false },
+                );
+            });
+        },
         editTask: (taskId, newTitle, newDescription, newComplete) => {
             setTasks((prevTasks) => {
                 const updateTask = {
                     title: newTitle,
                     description: newDescription,
                     complete: newComplete,
+                    editState: false,
                 };
                 return prevTasks.map((task, index) =>
                     index === taskId ? updateTask : task,
