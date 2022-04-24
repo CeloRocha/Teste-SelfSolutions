@@ -1,0 +1,47 @@
+.input{
+    position: relative;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    label{
+        color: black;
+        position: absolute;
+        left: 0.8rem;
+        font-size: 1.6rem;
+        font-weight: 600;
+        transition: 0.2s linear;
+    }
+    input {
+        outline: none;
+        padding: 0.6rem;
+        background: transparent;
+        box-shadow: 0 -0.1rem 0 0 black inset;
+        color: black;
+        transition: 0.2s ease;
+        font-family: 'Open Sans';
+        font-weight: 400;
+        font-size: 1.6rem;
+        &:hover{
+            box-shadow: 0 -0.3rem 0 0 black inset;
+        }
+        &:focus{
+            box-shadow: 0 -0.3rem 0 0 var(--purple) inset;
+            & + label{
+                color: var(--purple);
+                font-size: 1.2rem;
+                transform: translate(-10%, -80%);
+            }
+        }
+    }
+
+    &.focus{
+        input{
+            & + label{
+                font-size: 1.2rem;
+                transform: translate(-10%, -80%);
+            }
+        }
+    }
+}
