@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
+import Button from '../Button';
 
 const Modal = (props) => {
     return (
@@ -12,7 +13,7 @@ const Modal = (props) => {
                         onClick={props.closeModal}
                     ></div>
                     <div className="modal-content">
-                        <button onClick={props.closeModal}>Close</button>
+                        <Button type="close" onClick={props.closeModal} />
                         <h2 className="modal-title">{props.title}</h2>
                         {props.children}
                     </div>
