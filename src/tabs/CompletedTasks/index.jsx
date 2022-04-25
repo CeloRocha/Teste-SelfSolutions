@@ -17,8 +17,8 @@ const CompletedTasks = (props) => {
                     maxValue={tasks.length}
                     text={`${completedTasks.length}/${tasks.length}`}
                     styles={buildStyles({
-                        textColor: 'var(--purple)',
-                        pathColor: 'var(--purple)',
+                        textColor: 'var(--text-color)',
+                        pathColor: 'var(--text-color)',
                     })}
                 />
             </div>

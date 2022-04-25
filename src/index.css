@@ -1,22 +1,26 @@
 :root{
-    --purple: #572A78;
-    --light-purple: #8f1fdf;
-    --lightgray: #D3D3D3;
-    --farkgray: #9C9C9C;
-    --darkgray: #676767;
-    --whitesmoke: #F1F1F1;
-    --blue: #2269b9;
-    --khaki: #e9d592;
-    --shadow: 0.3rem 0.3rem 0.8rem 0.2rem var(--farkgray);
-    --gradient90: linear-gradient(90deg, var(--blue), var(--purple));
-    --gradient45: linear-gradient(135deg, var(--blue), var(--purple));
+    --blue: rgb(1, 71, 128);
+    --light-nav-border: #F1F1F1;
+    --dark-nav-border: #000;
+    --light-svg: black;
+    --dark-svg: white;
+    --light-shadow: 0.3rem 0.3rem 0.8rem 0.2rem #9C9C9C;
+    --dark-shadow: 0.3rem 0.3rem 0.8rem 0.2rem black;
+    --light-bg: #DFDFDF;
+    --dark-bg: #1A1A1A;
+    --light-modal: #EFEFEF;
+    --dark-modal: #272727;
+    --light-gradient: linear-gradient(135deg, greenyellow, #EFEFEF 25%, #EFEFEF);
+    --dark-gradient: linear-gradient(135deg, var(--blue), #272727 25%, #272727);
+    --light-text-color: #572A78;
+    --dark-text-color: rgb(79, 209, 3);
 }
 
 *{
     margin: 0;
     padding: 0;
     border: none;
-    color: var(--purple);
+    transition: background-color 0.5s ease;
     line-height: 1.5em;
     font-family: 'Apex New', 'Open Sans', Georgia, 'Times New Roman', Times, serif;
 }

@@ -6,15 +6,15 @@ import Tasks from './components/Tasks';
 import Modal from './components/Modal';
 import Input from './components/Input';
 import Button from './components/Button';
-import ControlTasks from './pages/ControlTasks';
-import CompletedTasks from './pages/CompletedTasks';
-import IncompleteTasks from './pages/IncompleteTasks';
+import ControlTasks from './tabs/ControlTasks';
+import CompletedTasks from './tabs/CompletedTasks';
+import IncompleteTasks from './tabs/IncompleteTasks';
 
 function App() {
     const [tab, setTab] = useState('control');
-
+    const [darkMode, setDarkMode] = useState(false);
     return (
-        <div className={`App`}>
+        <div className={`App ${darkMode ? 'dark' : ''}`}>
             <nav>
                 <button
                     className={`nav-button ${
@@ -40,8 +40,12 @@ function App() {
                 >
                     Completas
                 </button>
+                <button
+                    className={`changeMode-button ${darkMode ? 'dark' : ''}`}
+                    onClick={() => setDarkMode((p) => !p)}
+                ></button>
             </nav>
-            <h1>Lista de Tarefas</h1>
+            {/* <button onClick={() => setDarkMode((p) => !p)}>Toggle mode</button> */}
             {tab == 'incomplete' && <IncompleteTasks />}
             {tab === 'complete' && <CompletedTasks />}
             {tab === 'control' && <ControlTasks />}

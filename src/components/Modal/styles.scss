@@ -22,7 +22,7 @@
     width: min(400px, 90vw);
     padding: 1.6rem;
     border-radius: 16px;
-    background-color: #DFDFDF;
+    background-color: var(--modal-color);
     box-shadow: 0 0 16px 4px black;
 
     display: flex;

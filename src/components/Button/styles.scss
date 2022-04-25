@@ -8,7 +8,7 @@
     }
 
     svg > path{
-        fill: black;
+        fill: var(--svg-color);
         transition: 0.3s ease;
     }
 
