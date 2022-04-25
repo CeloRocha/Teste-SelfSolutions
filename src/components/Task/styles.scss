@@ -35,6 +35,7 @@
         width: 120px;
         display: flex;
         align-items: center;
+        justify-content: center;
     }
 
     &.complete{
@@ -45,6 +46,18 @@
         }
         .button.check:hover > svg > path{
             fill: black;
+        }
+    }
+}
+
+@media only screen and (max-width: 481px) {
+    .task{
+        flex-direction: column;
+
+        .task-buttons{
+            width: 100%;
+            gap: 2rem;
+            padding: 1.6rem 0;
         }
     }
 }
