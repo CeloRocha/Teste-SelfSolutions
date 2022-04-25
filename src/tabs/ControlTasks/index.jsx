@@ -27,7 +27,7 @@ const ControlTasks = () => {
 
     const handleCreateTask = (e) => {
         e.preventDefault();
-        if (newTaskTitle.length < 3) {
+        if (newTaskTitle.length < 3 || newTaskTitle === 'Mínimo de 3 letras.') {
             setNewTaskTitle('Mínimo de 3 letras.');
             return;
         }
