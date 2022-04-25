@@ -4,7 +4,17 @@ import PropTypes from 'prop-types';
 export const TaskContext = createContext({});
 
 const TaskContextProvider = (props) => {
-    const [tasks, setTasks] = useState([]);
+    const [tasks, setTasks] = useState(
+        JSON.parse(localStorage.getItem('tasks') || '[]'),
+    );
+
+    const saveTasks = (tasks) => {
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    };
+
+    useEffect(() => {
+        saveTasks(tasks);
+    }, [tasks]);
 
     const taskFunctions = {
         addTask: (task) => {
