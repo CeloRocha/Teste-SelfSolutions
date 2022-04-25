@@ -11,8 +11,10 @@ import CompletedTasks from './tabs/CompletedTasks';
 import IncompleteTasks from './tabs/IncompleteTasks';
 
 function App() {
+    const { tasks } = useContext(TaskContext);
     const [tab, setTab] = useState('control');
     const [darkMode, setDarkMode] = useState(false);
+
     return (
         <div className={`App ${darkMode ? 'dark' : ''}`}>
             <nav>
@@ -20,6 +22,7 @@ function App() {
                     className={`nav-button ${
                         tab === 'incomplete' ? 'selected' : ''
                     }`}
+                    disabled={!tasks.some((task) => !task.complete)}
                     onClick={() => setTab('incomplete')}
                 >
                     Incompletas
@@ -28,6 +31,7 @@ function App() {
                     className={`nav-button ${
                         tab === 'control' ? 'selected' : ''
                     }`}
+                    disabled={!tasks.some((task) => task.complete)}
                     onClick={() => setTab('control')}
                 >
                     Controle

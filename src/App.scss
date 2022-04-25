@@ -62,6 +62,19 @@
         transition: 0.5s ease;
     }
 
+    .nav-button:hover::after{
+        transform: translateY(75%);
+    }
+
+    .nav-button:disabled{
+        text-decoration: line-through;
+        &:hover{
+            cursor: not-allowed;
+            &::after{
+                transform: translateY(100%);
+            }
+        }
+    }
     .nav-button.selected{
         font-weight: 600;
     }
