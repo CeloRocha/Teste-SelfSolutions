@@ -11,7 +11,7 @@
     --light-modal: #EFEFEF;
     --dark-modal: #272727;
     --light-gradient: linear-gradient(135deg, greenyellow, #EFEFEF 25%, #EFEFEF);
-    --dark-gradient: linear-gradient(135deg, var(--blue), #272727 25%, #272727);
+    --dark-gradient: linear-gradient(135deg, rgb(231, 106, 3), #272727 25%, #272727);
     --light-text-color: #572A78;
     --dark-text-color: rgb(79, 209, 3);
 }
