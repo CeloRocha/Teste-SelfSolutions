@@ -20,6 +20,10 @@ const Task = (props) => {
 
     const handleEditForm = (e) => {
         e.preventDefault();
+        if (title.length < 3) {
+            setTitle('Mínimo de 3 letras.');
+            return;
+        }
         editTask(props.id, title, description);
     };
 
