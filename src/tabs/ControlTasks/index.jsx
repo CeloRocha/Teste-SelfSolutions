@@ -6,7 +6,7 @@ import Input from '../../components/Input';
 import { TaskContext } from '../../contexts/TasksContextProvider';
 
 const ControlTasks = () => {
-    const { taskFunctions } = useContext(TaskContext);
+    const { tasks, taskFunctions } = useContext(TaskContext);
     const [showCreateTaskModal, setShowCreateTaskModal] = useState(false);
     const [newTaskTitle, setNewTaskTitle] = useState('');
     const [newTaskDescription, setNewTaskDescription] = useState('');

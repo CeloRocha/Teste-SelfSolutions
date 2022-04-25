@@ -3,7 +3,7 @@ import { TaskContext } from '../../contexts/TasksContextProvider';
 import Task from '../Task';
 import './styles.scss';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-
+import ChatIcon from '../Icons/ChatIcon';
 const Tasks = () => {
     const { tasks, taskFunctions } = useContext(TaskContext);
 
@@ -50,9 +50,15 @@ const Tasks = () => {
                 )}
             </Droppable>
             {tasks?.length <= 0 && (
-                <h2 data-testid="No tasks" title="No tasks">
-                    Ainda não há nenhuma tarefa.
-                </h2>
+                <div className="notice">
+                    <ChatIcon />
+                    <h2 data-testid="No tasks" title="No tasks">
+                        Ainda não há nenhuma tarefa.
+                    </h2>
+                    <p>
+                        Anote suas tarefas para não se esquecer de cumpri-las.
+                    </p>
+                </div>
             )}
         </DragDropContext>
     );

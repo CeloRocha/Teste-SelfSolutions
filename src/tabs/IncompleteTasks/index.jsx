@@ -3,6 +3,7 @@ import { TaskContext } from '../../contexts/TasksContextProvider';
 import Button from '../../components/Button';
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 import { motion } from 'framer-motion';
+import AwardIcon from '../../components/Icons/AwardIcon';
 
 const dropIn = {
     hiddenLeft: {
@@ -84,6 +85,16 @@ const IncompleteTasks = (props) => {
                     );
                 })}
             </div>
+            {incompletedTasks.length === 0 && (
+                <div className="notice">
+                    <AwardIcon />
+                    <h2>Parabéns!!!</h2>
+                    <p>
+                        Você completou TODAS suas tarefas. Agora tire um
+                        descanso merecido.
+                    </p>
+                </div>
+            )}
         </>
     );
 };

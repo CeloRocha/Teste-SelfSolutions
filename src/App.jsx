@@ -31,7 +31,6 @@ function App() {
                     className={`nav-button ${
                         tab === 'control' ? 'selected' : ''
                     }`}
-                    disabled={!tasks.some((task) => task.complete)}
                     onClick={() => setTab('control')}
                 >
                     Controle
@@ -40,6 +39,7 @@ function App() {
                     className={`nav-button ${
                         tab === 'complete' ? 'selected' : ''
                     }`}
+                    disabled={!tasks.some((task) => task.complete)}
                     onClick={() => setTab('complete')}
                 >
                     Completas
