@@ -7,12 +7,6 @@ import Modal from './components/Modal';
 import Input from './components/Input';
 import Button from './components/Button';
 
-const initialTask = {
-    title: 'Initial task',
-    description: 'Initial description',
-    complete: false,
-};
-
 function App() {
     const { taskFunctions } = useContext(TaskContext);
     const [showCreateTaskModal, setShowCreateTaskModal] = useState(false);
@@ -47,7 +41,7 @@ function App() {
 
     return (
         <div className={`App`}>
-            <h1>Teste SelfSolutions</h1>
+            <h1>Lista de Tarefas</h1>
             <Tasks />
             <Button
                 type="add"
@@ -67,6 +61,7 @@ function App() {
                     />
                     <Input
                         label="Descrição"
+                        type="textarea"
                         value={newTaskDescription}
                         onChange={(e) => setNewTaskDescription(e.target.value)}
                     />
