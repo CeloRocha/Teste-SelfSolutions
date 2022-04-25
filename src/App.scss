@@ -1,6 +1,47 @@
 .App {
   text-align: center;
   padding-bottom: 10rem;
+
+  nav{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border-bottom: 2px solid var(--whitesmoke);
+
+    button{
+        position: relative;
+        padding: 1.6rem;
+        overflow: hidden;
+        width: 18rem;
+        background: transparent;
+        font-family: 'Apex New', 'Open Sans';
+        font-size: 1.6rem;
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+    button:after{
+        content: '';
+        height: 1.2rem;
+        width: 100%;
+        position: absolute;
+        border-radius: 999px;
+        background-color: var(--purple);
+        left: 0;
+        bottom: 0;
+        transform-origin: center;
+        transform: translateY(100%) scaleX(1);
+        transition: 0.5s ease;
+    }
+
+    button.selected{
+        font-weight: 600;
+    }
+
+    button.selected::after{
+        transform: translateY(50%);
+    }
+  }
 }
 
 .App-logo {

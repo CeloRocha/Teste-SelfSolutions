@@ -6,72 +6,45 @@ import Tasks from './components/Tasks';
 import Modal from './components/Modal';
 import Input from './components/Input';
 import Button from './components/Button';
+import ControlTasks from './pages/ControlTasks';
+import CompletedTasks from './pages/CompletedTasks';
+import IncompleteTasks from './pages/IncompleteTasks';
 
 function App() {
-    const { taskFunctions } = useContext(TaskContext);
-    const [showCreateTaskModal, setShowCreateTaskModal] = useState(false);
-    const [newTaskTitle, setNewTaskTitle] = useState('');
-    const [newTaskDescription, setNewTaskDescription] = useState('');
-
-    if (showCreateTaskModal) {
-        document.body.classList.add('modalOpen');
-    } else {
-        document.body.classList.remove('modalOpen');
-    }
-
-    const openCreateTaskModal = () => {
-        setNewTaskTitle('');
-        setNewTaskDescription('');
-        taskFunctions.resetEditTask();
-        setShowCreateTaskModal(true);
-    };
-    const closeCreateTaskModal = () => setShowCreateTaskModal(false);
-
-    const handleCreateTask = (e) => {
-        e.preventDefault();
-        if (newTaskTitle.length < 3) {
-            setNewTaskTitle('Mínimo de 3 letras.');
-            return;
-        }
-        taskFunctions.addTask({
-            title: newTaskTitle,
-            description: newTaskDescription,
-            complete: false,
-        });
-        closeCreateTaskModal();
-        setNewTaskTitle('');
-        setNewTaskDescription('');
-    };
+    const [tab, setTab] = useState('control');
 
     return (
         <div className={`App`}>
+            <nav>
+                <button
+                    className={`nav-button ${
+                        tab === 'incomplete' ? 'selected' : ''
+                    }`}
+                    onClick={() => setTab('incomplete')}
+                >
+                    Incompletas
+                </button>
+                <button
+                    className={`nav-button ${
+                        tab === 'control' ? 'selected' : ''
+                    }`}
+                    onClick={() => setTab('control')}
+                >
+                    Controle
+                </button>
+                <button
+                    className={`nav-button ${
+                        tab === 'complete' ? 'selected' : ''
+                    }`}
+                    onClick={() => setTab('complete')}
+                >
+                    Completas
+                </button>
+            </nav>
             <h1>Lista de Tarefas</h1>
-            <Tasks />
-            <Button
-                type="add"
-                className="add-button-fixed"
-                onClick={openCreateTaskModal}
-            />
-            <Modal
-                show={showCreateTaskModal}
-                title="Adicionar nova tarefa"
-                closeModal={closeCreateTaskModal}
-            >
-                <form onSubmit={handleCreateTask}>
-                    <Input
-                        label="Título"
-                        value={newTaskTitle}
-                        onChange={(e) => setNewTaskTitle(e.target.value)}
-                    />
-                    <Input
-                        label="Descrição"
-                        type="textarea"
-                        value={newTaskDescription}
-                        onChange={(e) => setNewTaskDescription(e.target.value)}
-                    />
-                    <button className="confirm-button">Criar</button>
-                </form>
-            </Modal>
+            {tab == 'incomplete' && <IncompleteTasks />}
+            {tab === 'complete' && <CompletedTasks />}
+            {tab === 'control' && <ControlTasks />}
         </div>
     );
 }
