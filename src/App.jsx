@@ -29,6 +29,10 @@ function App() {
 
     const handleCreateTask = (e) => {
         e.preventDefault();
+        if (newTaskTitle.length < 3) {
+            setNewTaskTitle('Mínimo de 3 letras.');
+            return;
+        }
         taskFunctions.addTask({
             title: newTaskTitle,
             description: newTaskDescription,
