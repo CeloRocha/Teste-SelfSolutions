@@ -42,6 +42,7 @@ const ControlTasks = () => {
     };
     return (
         <>
+            <h1>Todas suas Tarefas</h1>
             <Tasks />
             <Button
                 type="add"

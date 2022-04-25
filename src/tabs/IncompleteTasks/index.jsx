@@ -1,9 +1,31 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 import { TaskContext } from '../../contexts/TasksContextProvider';
 import Button from '../../components/Button';
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
+import { motion } from 'framer-motion';
 
+const dropIn = {
+    hiddenLeft: {
+        x: '-50px',
+        opacity: 0,
+    },
+    hiddenRight: {
+        x: '50px',
+        opacity: 0,
+    },
+    visible: {
+        x: '0',
+        y: '0',
+        opacity: 1,
+        transition: {
+            duration: 0.5,
+        },
+    },
+    hiddenY: {
+        y: '30px',
+        opacity: 0,
+    },
+};
 const IncompleteTasks = (props) => {
     const { tasks, taskFunctions } = useContext(TaskContext);
     const { completeTask } = taskFunctions;
@@ -13,7 +35,19 @@ const IncompleteTasks = (props) => {
 
     return (
         <>
-            <div style={{ width: '15rem', height: '15rem' }}>
+            <motion.h1
+                variants={dropIn}
+                initial="hiddenRight"
+                animate="visible"
+            >
+                Tarefas para Completar
+            </motion.h1>
+            <motion.div
+                variants={dropIn}
+                initial="hiddenLeft"
+                animate="visible"
+                style={{ width: '15rem', height: '15rem' }}
+            >
                 <CircularProgressbar
                     value={tasks.length - incompletedTasks.length}
                     maxValue={tasks.length}
@@ -25,11 +59,17 @@ const IncompleteTasks = (props) => {
                         pathColor: 'var(--text-color)',
                     })}
                 />
-            </div>
+            </motion.div>
             <div className="tasks">
                 {incompletedTasks?.map((task) => {
                     return (
-                        <div className="task" key={task.index}>
+                        <motion.div
+                            variants={dropIn}
+                            initial="hiddenY"
+                            animate="visible"
+                            className="task"
+                            key={task.index}
+                        >
                             <div className="task-info">
                                 <h2>{task.title}</h2>
                                 <p>{task.description}</p>
@@ -40,7 +80,7 @@ const IncompleteTasks = (props) => {
                                     onClick={() => completeTask(task.index)}
                                 />
                             </div>
-                        </div>
+                        </motion.div>
                     );
                 })}
             </div>
