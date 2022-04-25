@@ -49,10 +49,10 @@ function App() {
                     onClick={() => setDarkMode((p) => !p)}
                 ></button>
             </nav>
-            {/* <button onClick={() => setDarkMode((p) => !p)}>Toggle mode</button> */}
             {tab == 'incomplete' && <IncompleteTasks />}
             {tab === 'complete' && <CompletedTasks />}
             {tab === 'control' && <ControlTasks />}
+            <footer>By Marcelo Rocha</footer>
         </div>
     );
 }
