@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Teste-SelfSolutions/static/css/main.eedf8626.css",
+    "main.js": "/Teste-SelfSolutions/static/js/main.c5a36bfd.js",
+    "index.html": "/Teste-SelfSolutions/index.html",
+    "main.eedf8626.css.map": "/Teste-SelfSolutions/static/css/main.eedf8626.css.map",
+    "main.c5a36bfd.js.map": "/Teste-SelfSolutions/static/js/main.c5a36bfd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eedf8626.css",
+    "static/js/main.c5a36bfd.js"
+  ]
+}
