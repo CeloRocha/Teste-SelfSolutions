@@ -1,4 +1,9 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import {
+    render,
+    screen,
+    fireEvent,
+    waitForElementToBeRemoved,
+} from '@testing-library/react';
 import Modal from '.';
 import MockCloseModal from './MockModal';
 
@@ -31,7 +36,7 @@ describe('<Modal /> component', () => {
         expect(screen.queryByRole('button')).not.toBeInTheDocument();
         expect(screen.queryByText(/my modal text/i)).not.toBeInTheDocument();
     });
-    it('should close the modal by clicking in close button', () => {
+    it('should close the modal by clicking in close button', async () => {
         render(<MockCloseModal />);
         const closeButton = screen.getByRole('button');
 
@@ -42,7 +47,9 @@ describe('<Modal /> component', () => {
         ).toBeInTheDocument();
 
         fireEvent.click(closeButton);
-
+        await waitForElementToBeRemoved(
+            screen.queryByRole('heading', { name: /modal title/i }),
+        );
         expect(
             screen.queryByRole('heading', { name: /modal title/i }),
         ).not.toBeInTheDocument();
