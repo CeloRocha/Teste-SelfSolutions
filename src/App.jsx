@@ -65,7 +65,7 @@ function App() {
                         value={newTaskDescription}
                         onChange={(e) => setNewTaskDescription(e.target.value)}
                     />
-                    <button>Criar</button>
+                    <button className="confirm-button">Criar</button>
                 </form>
             </Modal>
         </div>

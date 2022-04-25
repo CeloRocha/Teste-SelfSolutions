@@ -64,7 +64,9 @@ const Task = (props) => {
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
                         />
-                        <button type="submit">Confirmar</button>
+                        <button type="submit" className="confirm-button">
+                            Confirmar
+                        </button>
                     </form>
                     <div className="task-buttons">
                         <Button

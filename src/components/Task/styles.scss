@@ -29,23 +29,6 @@
             text-align: start;
             font-size: 1.6rem;
         }
-        button{
-            padding: 0.4em 0.8em;
-            font-size: 1.6rem;
-            font-weight: 600;
-            border-radius: 0.4em;
-            box-shadow: 0 0 0 0 black inset;
-            color: white;
-            background-color: rgb(79, 209, 3);
-            transition: 0.3s ease;
-            &:hover{
-                box-shadow: 0 0 0.2em 0 black inset;
-            }
-            &:active{
-
-            background-color: rgb(60, 161, 1);
-            }
-        }
     }
 
     .task-buttons{
