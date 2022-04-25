@@ -3,6 +3,10 @@ import Task from '.';
 import { ServeContext } from './MockTask';
 
 describe('<Task />', () => {
+    beforeEach(() => {
+        localStorage.clear();
+    });
+
     it('should render Task component', () => {
         ServeContext();
 

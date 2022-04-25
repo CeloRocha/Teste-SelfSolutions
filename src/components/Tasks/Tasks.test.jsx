@@ -3,6 +3,10 @@ import Tasks from '.';
 import { ServeTasks } from './MockTasks';
 
 describe('<Tasks /> Component', () => {
+    beforeEach(() => {
+        localStorage.clear();
+    });
+
     it('should render tasks component without a task', () => {
         ServeTasks(0);
 

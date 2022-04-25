@@ -2,6 +2,10 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { ServeContext } from './MocksTextContext';
 
+beforeEach(() => {
+    localStorage.clear();
+});
+
 describe('Context: Task Provider', () => {
     it('should add a task to tasks state.', () => {
         ServeContext();
