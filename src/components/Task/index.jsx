@@ -18,10 +18,6 @@ const Task = (props) => {
         showEditTask(props.id, props.editState ? false : true);
     };
 
-    const closeEdit = () => {
-        showEditTask(props.id, false);
-    };
-
     const handleEditForm = (e) => {
         e.preventDefault();
         editTask(props.id, title, description);
@@ -38,8 +34,10 @@ const Task = (props) => {
         >
             {!props.editState && (
                 <>
-                    <h2>{props.title}</h2>
-                    <p>{props.description}</p>
+                    <div className="task-info">
+                        <h2>{props.title}</h2>
+                        <p>{props.description}</p>
+                    </div>
                     <div className="task-buttons">
                         <Button
                             type="check"
@@ -55,7 +53,7 @@ const Task = (props) => {
             )}
             {props.editState && (
                 <>
-                    <form onSubmit={handleEditForm}>
+                    <form onSubmit={handleEditForm} className="task-info">
                         <Input
                             label="Novo Título"
                             value={title}

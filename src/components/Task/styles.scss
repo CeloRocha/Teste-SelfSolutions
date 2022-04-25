@@ -1,22 +1,67 @@
 .task{
     padding: 1.6rem;
-    width: min(60rem, 95%);
+    width: min(60rem, 90%);
     box-shadow: var(--shadow);
     border-radius: 0.8rem;
 
-    background-image: linear-gradient(135deg, greenyellow, #DFDFDF 25%, #DFDFDF);;
+    background-image: linear-gradient(135deg, greenyellow, #EFEFEF 25%, #EFEFEF);;
     background-size: 200%;
     background-position: right;
     transition: background-position 1.5s;
 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .task-info{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2{
+            font-size: 2.4rem;
+            font-weight: 600;
+        }
+        p{
+            align-self: start;
+            font-family: 'Open Sans';
+            text-align: start;
+            font-size: 1.6rem;
+        }
+        button{
+            padding: 0.4em 0.8em;
+            font-size: 1.6rem;
+            font-weight: 600;
+            border-radius: 0.4em;
+            box-shadow: 0 0 0 0 black inset;
+            color: white;
+            background-color: rgb(79, 209, 3);
+            transition: 0.3s ease;
+            &:hover{
+                box-shadow: 0 0 0.2em 0 black inset;
+            }
+            &:active{
+
+            background-color: rgb(60, 161, 1);
+            }
+        }
+    }
+
+    .task-buttons{
+        width: 120px;
+        display: flex;
+        align-items: center;
+    }
+
     &.complete{
         background-position: left;
 
-        .task-button.check > svg > path{
+        .button.check > svg > path{
             fill: rgb(79, 209, 3);
         }
-        .task-button.check:hover > svg > path{
-            fill: red;
+        .button.check:hover > svg > path{
+            fill: black;
         }
     }
 }
