@@ -15,7 +15,7 @@ const Button = (props) => {
             iconComponent = <AddIcon />;
             break;
         case 'check':
-            buttonLabel = 'Confirmar';
+            buttonLabel = 'Completar';
             iconComponent = <CheckIcon />;
             break;
         case 'edit':
