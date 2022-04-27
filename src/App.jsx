@@ -1,11 +1,6 @@
 import './App.scss';
-import Task from './components/Task';
 import { useContext, useState } from 'react';
 import { TaskContext } from './contexts/TasksContextProvider';
-import Tasks from './components/Tasks';
-import Modal from './components/Modal';
-import Input from './components/Input';
-import Button from './components/Button';
 import ControlTasks from './tabs/ControlTasks';
 import CompletedTasks from './tabs/CompletedTasks';
 import IncompleteTasks from './tabs/IncompleteTasks';
@@ -46,10 +41,10 @@ function App() {
                 </button>
                 <button
                     className={`changeMode-button ${darkMode ? 'dark' : ''}`}
-                    onClick={() => setDarkMode((p) => !p)}
+                    onClick={() => setDarkMode((darkMode) => !darkMode)}
                 ></button>
             </nav>
-            {tab == 'incomplete' && <IncompleteTasks />}
+            {tab === 'incomplete' && <IncompleteTasks />}
             {tab === 'complete' && <CompletedTasks />}
             {tab === 'control' && <ControlTasks />}
             <footer>By Marcelo Rocha</footer>
