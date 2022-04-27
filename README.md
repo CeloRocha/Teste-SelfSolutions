@@ -3,6 +3,7 @@
 ---
 
 <a href="https://celorocha.github.io/Teste-SelfSolutions/" target='_blank'>Veja online</a>
+
 ---
 
 Teste de bolsa para estágio home-office na Startup SelfSolutions.
@@ -59,7 +60,7 @@ As informações devem ser guardadas e resgatadas a partir do localStorage, tamb
 No desenvolvimento:
 
 - ReactJS;
-- Jest;
+- Jest (testes unitários);
 - React Beautifull DnD;
 - React Framer-Motion;
 - React Circular Progressbar
@@ -79,6 +80,14 @@ utiliza).
 
 Como a página não muda sua rota, a denominação "pages", parecia incoerente, por isso seu nome
 foi alterado neste projeto.
+
+### Testes com Jest:
+
+**Testes unitários** foram realizados durante a execução deste projeto. Portanto os testes como do próprio componente App, se tornaram pequenos, já que não precisavam testar novamente funcionalidades já garantidas em outros testes.
+
+A mockagem de funções foi muito necessária, devido a utilização do contexto com as tasks estar diretamente sobre o aplicativo inteiro.
+
+O comando para a execução dos testes é: **npm run test**.
 
 
 ### Aba de Controle:
