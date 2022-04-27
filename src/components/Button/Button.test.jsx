@@ -6,7 +6,7 @@ describe('<Button /> task component', () => {
     it('should render a check button', () => {
         render(<Button type="check" />);
 
-        expect(screen.getByLabelText(/confirmar/i)).toBeInTheDocument();
+        expect(screen.getByLabelText(/completar/i)).toBeInTheDocument();
     });
     it('should render a edit button', () => {
         render(<Button type="edit" />);
@@ -17,6 +17,11 @@ describe('<Button /> task component', () => {
         render(<Button type="remove" />);
 
         expect(screen.getByLabelText(/remover/i)).toBeInTheDocument();
+    });
+    it('should render a close button', () => {
+        render(<Button type="close" />);
+
+        expect(screen.getByLabelText(/fechar/i)).toBeInTheDocument();
     });
     it('should call a function when clicked', () => {
         const fn = jest.fn();
