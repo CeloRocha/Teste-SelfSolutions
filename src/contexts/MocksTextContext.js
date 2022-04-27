@@ -17,6 +17,7 @@ export const mockTask = {
     description: 'Task description',
     complete: false,
 };
+const keys = ['aa', 'bb', 'cc', 'dd', 'ee'];
 
 export const CustomRender = () => {
     const { tasks, taskFunctions } = useContext(TaskContext);
@@ -25,10 +26,10 @@ export const CustomRender = () => {
             {tasks &&
                 tasks.map((task, id) => {
                     return (
-                        <>
-                            <Task {...task} id={id} key={id} />;
+                        <div key={keys[id]}>
+                            <Task {...task} id={id} />;
                             {task.complete && <p>Complete state</p>}
-                        </>
+                        </div>
                     );
                 })}
             <button onClick={() => taskFunctions.addTask(mockTask)}>

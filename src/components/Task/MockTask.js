@@ -24,7 +24,10 @@ export const CustomTask = () => {
     const { tasks, taskFunctions } = useContext(TaskContext);
 
     useEffect(() => {
-        taskFunctions.addTask(mockTask);
+        taskFunctions.addTask({
+            ...mockTask,
+            title: mockTask.title + tasks.length,
+        });
     }, []);
 
     return (
@@ -32,10 +35,10 @@ export const CustomTask = () => {
             {tasks &&
                 tasks.map((task, id) => {
                     return (
-                        <>
-                            <Task {...task} id={id} key={id} />;
+                        <div key={task.title}>
+                            <Task {...task} id={id} />;
                             {task.complete && <p>Complete state</p>}
-                        </>
+                        </div>
                     );
                 })}
         </>

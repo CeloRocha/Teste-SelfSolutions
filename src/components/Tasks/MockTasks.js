@@ -27,7 +27,10 @@ const CustomTasks = (props) => {
         let i;
         // eslint-disable-next-line react/prop-types
         for (i = 0; i < props.number; i++) {
-            taskFunctions.addTask(mockTask);
+            taskFunctions.addTask({
+                ...mockTask,
+                title: `${mockTask.title + i}`,
+            });
         }
     }, []);
 
