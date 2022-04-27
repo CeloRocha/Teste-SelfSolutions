@@ -32,6 +32,7 @@ const CustomTasks = (props) => {
                 title: `${mockTask.title + i}`,
             });
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return <Tasks />;

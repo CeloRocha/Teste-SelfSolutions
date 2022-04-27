@@ -28,6 +28,7 @@ export const CustomTask = () => {
             ...mockTask,
             title: mockTask.title + tasks.length,
         });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
