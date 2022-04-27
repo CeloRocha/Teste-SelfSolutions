@@ -18,7 +18,7 @@ describe('<Task />', () => {
         expect(
             screen.getByText(/a short description about my task/i),
         ).toBeInTheDocument();
-        expect(screen.getByLabelText(/confirmar/i)).toBeInTheDocument();
+        expect(screen.getByLabelText(/completar/i)).toBeInTheDocument();
         expect(screen.getByLabelText(/editar/i)).toBeInTheDocument();
         expect(screen.getByLabelText(/remover/i)).toBeInTheDocument();
     });
@@ -34,7 +34,7 @@ describe('<Task />', () => {
     });
     it('should mark task as complete, when mark complete button is clicked', () => {
         ServeContext();
-        const completeButton = screen.getByLabelText(/confirmar/i);
+        const completeButton = screen.getByLabelText(/completar/i);
 
         expect.assertions(7);
         expect(screen.getByRole('heading')).toBeInTheDocument();
@@ -57,5 +57,30 @@ describe('<Task />', () => {
         fireEvent.click(editButton);
         expect(screen.queryByRole('heading')).not.toBeInTheDocument();
         expect(screen.getByLabelText(/título/i)).toBeInTheDocument();
+    });
+    it('should be edited after confirm change', () => {
+        ServeContext();
+        const editButton = screen.getByLabelText(/editar/i);
+
+        expect.assertions(5);
+        expect(
+            screen.getByRole('heading', { name: /first task/i }),
+        ).toBeInTheDocument();
+        expect(screen.queryByLabelText(/título/i)).not.toBeInTheDocument();
+        fireEvent.click(editButton);
+        const titleInput = screen.getByDisplayValue(/first task/i);
+        fireEvent.change(titleInput, { target: { value: 'Edited title' } });
+        expect(screen.queryAllByDisplayValue(/first task/i)).toHaveLength(0);
+        expect(screen.getByDisplayValue(/edited title/i)).toBeInTheDocument();
+
+        const confirmButton = screen.getByRole('button', {
+            name: /confirmar/i,
+        });
+
+        fireEvent.click(confirmButton);
+
+        expect(
+            screen.getByRole('heading', { name: /edited title/i }),
+        ).toBeInTheDocument();
     });
 });

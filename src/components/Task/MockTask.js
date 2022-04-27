@@ -24,10 +24,7 @@ export const CustomTask = () => {
     const { tasks, taskFunctions } = useContext(TaskContext);
 
     useEffect(() => {
-        taskFunctions.addTask({
-            ...mockTask,
-            title: mockTask.title + tasks.length,
-        });
+        taskFunctions.addTask(mockTask);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
