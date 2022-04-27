@@ -18,13 +18,14 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-
+        word-break: break-word;
         h2{
             font-size: 2.4rem;
             font-weight: 600;
         }
         p{
             align-self: start;
+            width: 100%;
             font-family: 'Open Sans';
             text-align: start;
             font-size: 1.6rem;
@@ -53,7 +54,7 @@
 @media only screen and (max-width: 481px) {
     .task{
         flex-direction: column;
-
+        align-items: stretch;
         .task-buttons{
             width: 100%;
             gap: 2rem;
