@@ -20,7 +20,7 @@ function App() {
                     disabled={!tasks.some((task) => !task.complete)}
                     onClick={() => setTab('incomplete')}
                 >
-                    Incompletas
+                    Em Progresso
                 </button>
                 <button
                     className={`nav-button ${
