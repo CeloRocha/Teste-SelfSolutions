@@ -42,6 +42,18 @@ Consistindo em uma To-Do-List, também é necessário uma opção para verificar
 
 As informações devem ser guardadas e resgatadas a partir do localStorage, também pode utilizar um banco de dados na Amazon AWS (RDS ou dynamoDB) especificamente, portanto não posso utilizar Firebase para fazer uma fácil integração com um banco de dados.
 
+### Features:
+
+- Light/Dark Mode;
+- Animações em abas e na modal;
+- Drag & Drop, para reordenar as tarefas na aba de controle;
+- Aba de controle, para criar, editar, deletar e reordenar apenas na mesma;
+- É possível marcar a tarefa como feita na aba de progresso e na de controle;
+- Abas para ver apenas tarefas em progresso e tarefas completas;
+- Aba de progresso lhe parabeniza após a conclusão de todas tarefas;
+- Barra de progresso;
+- Input (igual da Material UI, porém feita utilizando engenharia reversa);
+
 ### Tecnologias utilizadas:
 
 No desenvolvimento:
@@ -56,6 +68,18 @@ No desenvolvimento:
 - prettier;
 - javascript;
 - sass;
+
+#### React Router:
+
+Esta pequena sessão é para explicar o uso da pasta tabs, e não uma pasta pages.
+Considerando que neste caso as novas páginas são pequenas e são poucas, parecia
+desnecessário a utilização de rotas na aplicação, portanto o React Router não foi
+utilizado (caso seja um bom exemplo de conhecimento, o repositório "gaming-site" o
+utiliza).
+
+Como a página não muda sua rota, a denominação "pages", parecia incoerente, por isso seu nome
+foi alterado neste projeto.
+
 
 ### Aba de Controle:
 
