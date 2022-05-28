@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/Teste-SelfSolutions/static/css/main.e30d8d26.css",
-    "main.js": "/Teste-SelfSolutions/static/js/main.1f8bba7a.js",
-    "index.html": "/Teste-SelfSolutions/index.html",
-    "main.e30d8d26.css.map": "/Teste-SelfSolutions/static/css/main.e30d8d26.css.map",
-    "main.1f8bba7a.js.map": "/Teste-SelfSolutions/static/js/main.1f8bba7a.js.map"
+    "main.css": "/ToDo-ReactApp/static/css/main.e30d8d26.css",
+    "main.js": "/ToDo-ReactApp/static/js/main.1f8bba7a.js",
+    "index.html": "/ToDo-ReactApp/index.html",
+    "main.e30d8d26.css.map": "/ToDo-ReactApp/static/css/main.e30d8d26.css.map",
+    "main.1f8bba7a.js.map": "/ToDo-ReactApp/static/js/main.1f8bba7a.js.map"
   },
   "entrypoints": [
     "static/css/main.e30d8d26.css",
